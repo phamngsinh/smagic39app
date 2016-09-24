@@ -1,0 +1,35 @@
+
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <h1>Smagic39's Blog</h1>
+  <h3>Lorem ipsum Laboris ullamco exercitation in aliquip commodo aliquip dolor exercitation cupidatat.</h3>
+
+<div class="row">
+  <dir class="col-sm-8">
+    <ul class="list-unstyled">
+    <% @articles.each do |article| %>
+
+
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title"><%= article.title %></h4>
+        <p class="card-text"><%=  @markdown.render(article.body).html_safe %></p>
+        
+      </div>
+      <div class="card-footer">
+         <%= link_to 'View Detail', edit_article_path(article), class: 'btn btn-warining' %>
+      </div>
+    </div>
+
+
+    <% end %>
+    </ul>
+  </dir>
+</div>
+
+<br>
+
+<%= link_to 'New Article', new_article_path %>
+
+</div>
